@@ -11,7 +11,7 @@ pipeline {
         stage('Build') {
             steps {
 		sh 'mvn package -DskipTest'
-		sh 'docker build -t="zachclee/simple-project:latest".'
+		sh 'docker build -t="zachclee/simple-project:latest" .'
                 }
             }
         stage('Deploy') {
