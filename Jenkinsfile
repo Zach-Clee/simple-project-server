@@ -17,6 +17,7 @@ pipeline {
         stage('Deploy') {
             steps {
 		echo "deploy"
+		sh 'docker push zachclee/simple-project:latest'
             }
         }
     }
