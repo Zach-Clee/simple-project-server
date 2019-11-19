@@ -4,15 +4,14 @@ pipeline {
     stages {
         stage('Testing Environment') {
             steps {
-                    sh 'mvn test -Dtest=ControllerAndServiceSuite'
+                sh 'mvn test -Dtest=ControllerAndServiceSuite'
 		sh 'mvn test -Dtest=IntegrationSuite'
-		sh 'mvn package -DskipTests'                
-		sh 'docker build -t="zachclee/simple-project:latest".'
-}
+		}
             }
         stage('Build') {
             steps {
-		echo "build"
+		sh 'mvn package -DskipTest'
+		sh 'docker build -t="zachclee/simple-project:latest".'
                 }
             }
         stage('Deploy') {
