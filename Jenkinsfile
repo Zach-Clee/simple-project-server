@@ -6,7 +6,8 @@ pipeline {
             steps {
                     sh 'mvn test -Dtest=ControllerAndServiceSuite'
 		sh 'mvn test -Dtest=IntegrationSuite'
-                }
+		sh 'mvn package -DskipTests'                
+}
             }
         stage('Build') {
             steps {
