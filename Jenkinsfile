@@ -10,7 +10,7 @@ pipeline {
             }
         stage('Build') {
             steps {
-		sh 'mvn package -DskipTest'
+		sh 'mvn package -DskipTests'
 		sh 'docker build -t="zachclee/simple-project:latest" .'
                 }
             }
